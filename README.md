@@ -60,3 +60,11 @@ void loop() {
   delay(1000);
 }
 ```
+
+
+To get the time and take some action, for example - turn a light on from 12PM to 12:27 PM - do this.
+```
+ if (( curHour <= 12 ) && ( curMinutes <= 27) ) {
+    Serial.println ("time is right ");
+  }
+```
