@@ -78,3 +78,18 @@ To get the time and take some action, for example - turn a light on from 12PM to
 
 
 yasha
+
+```
+
+Updated in GTTC
+  else {
+      digitalWrite(led, LOW); // turn LED OFF
+      delay(500);             // delay 200 milliseconds 
+      
+      if (state == HIGH){
+        Serial.println("Motion stopped!");
+        state = LOW;       // update variable state to LOW
+    }
+  }
+}
+```
