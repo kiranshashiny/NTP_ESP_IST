@@ -75,3 +75,15 @@ To get the time and take some action, for example - turn a light on from 12PM to
   }
  
 ```
+
+
+To compile on the Wemos - use these options for Board
+
+![image](https://user-images.githubusercontent.com/14288989/213639009-63e61d29-c0a2-4279-abef-5b003f1e23e1.png)
+
+
+The output will be something like this.
+
+
+![image](https://user-images.githubusercontent.com/14288989/213639077-b5f65b3c-2518-4a76-afcb-7f472a90dc87.png)
+
