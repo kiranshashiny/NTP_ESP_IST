@@ -1,0 +1,54 @@
+
+#include <NTPClient.h>
+// change next line to use with another board/shield
+#include <ESP8266WiFi.h>
+//#include <WiFi.h> // for WiFi shield
+//#include <WiFi101.h> // for WiFi 101 shield or MKR1000
+#include <WiFiUdp.h>
+
+const char *ssid     = "XXXX";
+const char *password = "XXXXX";
+WiFiUDP ntpUDP;
+NTPClient timeClient(ntpUDP, "in.pool.ntp.org", 3600, 60000);
+
+
+
+void setup(){
+  Serial.begin(115200);
+
+  WiFi.begin(ssid, password);
+
+  while ( WiFi.status() != WL_CONNECTED ) {
+    delay ( 500 );
+    Serial.print ( "." );
+  }
+  timeClient.setTimeOffset(19800);
+
+  timeClient.begin();
+}
+
+void loop() {
+  timeClient.update();
+  //current time.
+  Serial.print (timeClient.getFormattedTime());
+
+
+  Serial.print ( " Epoch : " );
+  Serial.print (timeClient.getEpochTime());
+  Serial.print ( " EST: " );
+
+  // convert Epoch to EST
+  unsigned long epoch = timeClient.getEpochTime();
+  epoch = epoch-37800  ; //ADD -10.5 Hours (For GMT+10.5)
+    // print the hour, minute and second:
+    int hr=(epoch  % 86400L) / 3600;
+    int min=(epoch % 3600) / 60;
+    int sec=(epoch % 60);
+  Serial.print (hr);
+  Serial.print ( ":" );
+  Serial.print (min);
+  Serial.print ( ":" );
+  Serial.println (sec);
+
+  delay(1000);
+}
