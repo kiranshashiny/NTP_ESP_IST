@@ -13,6 +13,13 @@ To convert everyhour to the current time zone, multiply by 3600.
 IST is +5.30 hours i.e: Multply 3600 X 5  + 1800 = 19800
 
 
+To get the time for New York (EST), -10.5 hrs ( so multiply -10.5 X 3600)  = -37800
+
+Likewise for London it is -5.5 hrs
+
+
+![image](https://github.com/kiranshashiny/NTP_ESP_IST/assets/14288989/47268e79-1347-45dd-a6c8-ccf872e9739d)
+ 
 
 ```
   timeClient.setTimeOffset(19800);
